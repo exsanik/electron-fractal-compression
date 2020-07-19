@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fractal compression</title>
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    /> -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; worker-src 'self'; connect-src 'self'; font-src 'self';
+    img-src 'self'; media-src 'self'; object-src 'self'; script-src 'self'; style-src 'self'"
+    /> -->
+  </head>
+  <body>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col">
+          <div
+            class="d-flex h-100 flex-column justify-content-around align-items-center"
+          >
+            <!-- <span id="source-file">Source file size: 0 byte</span> -->
+            <img
+              src=""
+              id="show-image"
+              class="img-fluid d-none w-75"
+              alt="image"
+            />
+            <!-- <span id="compressed-file">Compressed file size: 0 byte</span> -->
+            <div class="mx-auto d-flex flex-column">
+              <button
+                id="load-image"
+                type="button"
+                class="btn btn-outline-light"
+              >
+                Load image ⬆
+              </button>
+              <button
+                id="compress"
+                type="button"
+                class="btn btn-light d-none mt-2"
+              >
+                Compress 🖼
+              </button>
+              <button
+                id="decompress"
+                type="button"
+                class="btn btn-outline-info mt-2"
+              >
+                Decompress 🖼
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col d-flex justify-content-around align-items-center flex-column"
+        >
+          <div class="flex-column d-none w-100" id="decompress-block">
+            <img src="" id="decompressed" class="img-fluid w-75" alt="image" />
+            <input
+              data-slider-id="decompress-slider"
+              type="text"
+              data-slider-min="0"
+              data-slider-max="12"
+              data-slider-step="1"
+              data-slider-value="0"
+              id="decompress-slider"
+            />
+          </div>
+          <div class="mx-auto w-100">
+            <form>
+              <div class="form-group d-flex flex-column">
+                <div>
+                  <label for="formControlRange" class="mr-2"
+                    >Compare error</label
+                  >
+                  <input
+                    data-slider-id="compare-error"
+                    type="text"
+                    data-slider-min="0"
+                    data-slider-max="1000"
+                    data-slider-step="1"
+                    data-slider-value="4"
+                    id="compare-error"
+                  />
+                </div>
+                <div>
+                  <label for="formControlRange" class="mr-2">
+                    Decompression iterations
+                  </label>
+                  <input
+                    data-slider-id="iterations"
+                    type="text"
+                    data-slider-min="0"
+                    data-slider-max="40"
+                    data-slider-step="1"
+                    data-slider-value="12"
+                    id="iterations"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="spinner-border text-light position-absolute d-none"
+      id="spinner"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+  </body>
+</html>

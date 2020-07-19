@@ -1,0 +1,13 @@
+body {
+  background-color: #252525 !important;
+  color: #fff !important;
+}
+
+.container-after-titlebar {
+  overflow: hidden !important;
+}
+
+#spinner {
+  top: 40%;
+  left: 48%;
+}
